@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="com.rusanu.dataconnectiondialog, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\com.rusanu.dataconnectiondialog.1.0.0.1\lib\net20\com.rusanu.dataconnectiondialog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +49,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CompanyLevel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CompanyLevel.Designer.cs">
+      <DependentUpon>CompanyLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyLevelViewModel.cs" />
+    <Compile Include="Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCompany.Designer.cs">
+      <DependentUpon>NewCompany.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartScreen.Designer.cs">
+      <DependentUpon>StartScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartScreenViewModel.cs" />
+    <Compile Include="Structure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Structure.Designer.cs">
+      <DependentUpon>Structure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StructureOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StructureOverlay.Designer.cs">
+      <DependentUpon>StructureOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StructureOverLayViewModel.cs" />
+    <EmbeddedResource Include="CompanyLevel.resx">
+      <DependentUpon>CompanyLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCompany.resx">
+      <DependentUpon>NewCompany.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +108,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StartScreen.resx">
+      <DependentUpon>StartScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Structure.resx">
+      <DependentUpon>Structure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StructureOverlay.resx">
+      <DependentUpon>StructureOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Logic.Model.GridCompany.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\ProgramLogic.csproj">
+      <Project>{8376237E-23EE-40CA-96D6-E6439B10CC8B}</Project>
+      <Name>ProgramLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
