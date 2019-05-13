@@ -7,20 +7,10 @@ using System.Windows.Forms;
 
 namespace Logic.Model
 {
-    public class GridCompany:TreeNode
+    public class GridCompany
     {
-        //public GridCompany(string v, GridCompany[] array)
-        //{
-        //    TreeNode t = new TreeNode("text",array);
-        //}
-
         public string CompanyName { get; set; }
         public string CheifName { get; set; }
         public string CheifSurname { get; set; }
-
-        public override string ToString()
-        {
-            return Text = CompanyName;
-        }
     }
 }
