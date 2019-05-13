@@ -9,6 +9,7 @@ namespace Logic.Model
 {
     public class GridCompany
     {
+        public int Id { get; set; }
         public string CompanyName { get; set; }
         public string CheifName { get; set; }
         public string CheifSurname { get; set; }

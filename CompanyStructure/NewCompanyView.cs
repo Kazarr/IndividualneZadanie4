@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CompanyStructure
 {
-    public partial class NewCompany : Form
+    public partial class NewCompanyView : Form
     {
-        public NewCompany()
+        public NewCompanyView()
         {
             InitializeComponent();
         }

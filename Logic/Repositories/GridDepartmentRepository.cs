@@ -1,6 +1,7 @@
 ﻿using Logic.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Logic.Repositories
             List<GridCompany> ret = new List<GridCompany>();
             Execute((commnad) => 
             {
-                commnad.CommandText = @"  select d.name, e.Name, e.Surname from Department as d 
+                commnad.CommandText = @"  select d.name, e.Name, e.Surname, d.id from Department as d 
                                           join Employee as e on d.CheifEmployeeId = e.Id
                                           where d.ParentDepartmentId is null";
             using(SqlDataReader reader = commnad.ExecuteReader())
@@ -26,21 +27,23 @@ namespace Logic.Repositories
                         {
                             CompanyName = reader.GetString(0),
                             CheifName = reader.GetString(1),
-                            CheifSurname = reader.GetString(2)
+                            CheifSurname = reader.GetString(2),
+                            Id = reader.GetInt32(3)
                         });
                     }
                 }
             });
             return ret;
         }
-        public List<GridCompany> GetDepartments()
+        public List<GridCompany> GetDepartments(int selectedId)
         {
             List<GridCompany> ret = new List<GridCompany>();
             Execute((commnad) =>
             {
-                commnad.CommandText = @"  select d.name, e.Name, e.Surname from Department as d 
+                commnad.CommandText = @"  select d.name, e.Name, e.Surname, d.Id from Department as d 
                                           join Employee as e on d.CheifEmployeeId = e.Id
-                                          where d.ParentDepartmentId is not null";
+                                          where d.ParentDepartmentId = @selectedId";
+                commnad.Parameters.Add("selectedId", SqlDbType.Int).Value = selectedId;
                 using (SqlDataReader reader = commnad.ExecuteReader())
                 {
                     while (reader.Read())
@@ -49,8 +52,34 @@ namespace Logic.Repositories
                         {
                             CompanyName = reader.GetString(0),
                             CheifName = reader.GetString(1),
-                            CheifSurname = reader.GetString(2)
+                            CheifSurname = reader.GetString(2),
+                            Id = reader.GetInt32(3)
                         });
+                    }
+                }
+            });
+            return ret;
+        }
+        public GridCompany GetGridCompany(int selectedId)
+        {
+            GridCompany ret = new GridCompany();
+            Execute((commnad) =>
+            {
+                commnad.CommandText = @"  select d.name, e.name, e.surname, d.Id from Department as d
+                                            join Employee as e on d.CheifEmployeeId = e.Id
+                                            where d.Id = @selectedId";
+                commnad.Parameters.Add("selectedId", SqlDbType.Int).Value = selectedId;
+                using (SqlDataReader reader = commnad.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ret = new GridCompany()
+                        {
+                            CompanyName = reader.GetString(0),
+                            CheifName = reader.GetString(1),
+                            CheifSurname = reader.GetString(2),
+                            Id = reader.GetInt32(3)
+                        };
                     }
                 }
             });

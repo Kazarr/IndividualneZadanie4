@@ -1,6 +1,6 @@
 ﻿namespace CompanyStructure
 {
-    partial class NewCompany
+    partial class NewCompanyView
     {
         /// <summary>
         /// Required designer variable.

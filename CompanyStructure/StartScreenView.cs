@@ -12,10 +12,10 @@ using com.rusanu.dataconnectiondialog;
 
 namespace CompanyStructure
 {
-    public partial class StartScreen : Form
+    public partial class StartScreenView : Form
     {
         private StartScreenViewModel _startScreenViewModel;
-        public StartScreen()
+        public StartScreenView()
         {
             InitializeComponent();
             _startScreenViewModel = new StartScreenViewModel();
@@ -44,7 +44,7 @@ namespace CompanyStructure
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            using(CompanyLevel companyLevel = new CompanyLevel(_startScreenViewModel.Logic))
+            using(CompanyLevelView companyLevel = new CompanyLevelView(_startScreenViewModel.Logic))
             {
                 companyLevel.ShowDialog();
             }

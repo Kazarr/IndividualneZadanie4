@@ -12,20 +12,23 @@ using System.Windows.Forms;
 
 namespace CompanyStructure
 {
-    public partial class StructureOverlay : Form
+    public partial class StructureOverlayView : Form
     {
         private StructureOverLayViewModel _structureOverLayViewModel;
-        public StructureOverlay(LogicSystem logic, int selectedId)
+        public StructureOverlayView(LogicSystem logic, int selectedId)
         {
             InitializeComponent();
-            _structureOverLayViewModel = new StructureOverLayViewModel(logic);
-            _structureOverLayViewModel.LogicSystem = logic;
-            grdDepartmentEmployees.DataSource = _structureOverLayViewModel.GetSelectedCompanyDepartment();
+            _structureOverLayViewModel = new StructureOverLayViewModel(logic, selectedId);
+            
+            grdDivisions.DataSource = _structureOverLayViewModel.GetSelectedCompanyDepartment(selectedId);
+            grdProjects.DataSource = _structureOverLayViewModel.GetSelectedCompanyDepartment((int)grdDivisions.Rows[0].Cells[0].Value);
+            grdDepartments.DataSource = _structureOverLayViewModel.GetSelectedCompanyDepartment((int)grdProjects.Rows[0].Cells[0].Value);
+            //grdDepartmentEmployees.DataSource = _structureOverLayViewModel.GetEmployess((int)grdDepartments.Rows[0].Cells[0].Value);
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            using (Employee employee = new Employee())
+            using (EmployeeView employee = new EmployeeView())
             {
                 employee.ShowDialog();
                 if(employee.DialogResult == DialogResult.OK)
@@ -37,7 +40,7 @@ namespace CompanyStructure
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            using (Employee employee = new Employee())
+            using (EmployeeView employee = new EmployeeView())
             {
                 employee.ShowDialog();
                 if (employee.DialogResult == DialogResult.OK)
@@ -54,7 +57,7 @@ namespace CompanyStructure
 
         private void btnAddStructure_Click(object sender, EventArgs e)
         {
-            using (Structure structure = new Structure())
+            using (StructureView structure = new StructureView())
             {
                 structure.ShowDialog();
                 if (structure.DialogResult == DialogResult.OK)
@@ -67,7 +70,7 @@ namespace CompanyStructure
 
         private void btnEditStructure_Click(object sender, EventArgs e)
         {
-            using (Structure structure = new Structure())
+            using (StructureView structure = new StructureView())
             {
                 structure.ShowDialog();
                 if (structure.DialogResult == DialogResult.OK)

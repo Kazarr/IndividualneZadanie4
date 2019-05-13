@@ -1,6 +1,6 @@
 ﻿namespace CompanyStructure
 {
-    partial class StartScreen
+    partial class StartScreenView
     {
         /// <summary>
         /// Required designer variable.

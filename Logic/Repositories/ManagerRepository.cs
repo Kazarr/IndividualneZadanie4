@@ -10,6 +10,7 @@ namespace Logic.Repositories
     public class ManagerRepository:ConnectionManager
     {
         public static GridDepartmentRepository GridCompanyRepository = new GridDepartmentRepository();
+        public static EmployeeRespository EmployeeRespository = new EmployeeRespository();
         public bool GenerateDB()
         {
             bool ret = false;
@@ -30,7 +31,6 @@ namespace Logic.Repositories
             Execute((command) =>
             {
                 command.CommandText = @"SELECT [name] FROM [sys].[databases] WHERE[name] = N'CompanyStructure1'";
-                //command.Parameters.Add("DBname", SqlDbType.NVarChar).Value = 
                 ret = (string)command.ExecuteScalar();
             });
             return ret;

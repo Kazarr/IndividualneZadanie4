@@ -49,55 +49,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompanyLevel.cs">
+    <Compile Include="CompanyLevelView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompanyLevel.Designer.cs">
-      <DependentUpon>CompanyLevel.cs</DependentUpon>
+    <Compile Include="CompanyLevelView.Designer.cs">
+      <DependentUpon>CompanyLevelView.cs</DependentUpon>
     </Compile>
     <Compile Include="CompanyLevelViewModel.cs" />
-    <Compile Include="Employee.cs">
+    <Compile Include="EmployeeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="EmployeeView.Designer.cs">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewCompany.cs">
+    <Compile Include="NewCompanyView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewCompany.Designer.cs">
-      <DependentUpon>NewCompany.cs</DependentUpon>
+    <Compile Include="NewCompanyView.Designer.cs">
+      <DependentUpon>NewCompanyView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartScreen.cs">
+    <Compile Include="StartScreenView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartScreen.Designer.cs">
-      <DependentUpon>StartScreen.cs</DependentUpon>
+    <Compile Include="StartScreenView.Designer.cs">
+      <DependentUpon>StartScreenView.cs</DependentUpon>
     </Compile>
     <Compile Include="StartScreenViewModel.cs" />
-    <Compile Include="Structure.cs">
+    <Compile Include="StructureView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Structure.Designer.cs">
-      <DependentUpon>Structure.cs</DependentUpon>
+    <Compile Include="StructureView.Designer.cs">
+      <DependentUpon>StructureView.cs</DependentUpon>
     </Compile>
-    <Compile Include="StructureOverlay.cs">
+    <Compile Include="StructureOverlayView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StructureOverlay.Designer.cs">
-      <DependentUpon>StructureOverlay.cs</DependentUpon>
+    <Compile Include="StructureOverlayView.Designer.cs">
+      <DependentUpon>StructureOverlayView.cs</DependentUpon>
     </Compile>
     <Compile Include="StructureOverLayViewModel.cs" />
-    <EmbeddedResource Include="CompanyLevel.resx">
-      <DependentUpon>CompanyLevel.cs</DependentUpon>
+    <EmbeddedResource Include="CompanyLevelView.resx">
+      <DependentUpon>CompanyLevelView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeView.resx">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewCompany.resx">
-      <DependentUpon>NewCompany.cs</DependentUpon>
+    <EmbeddedResource Include="NewCompanyView.resx">
+      <DependentUpon>NewCompanyView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -108,14 +108,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StartScreen.resx">
-      <DependentUpon>StartScreen.cs</DependentUpon>
+    <EmbeddedResource Include="StartScreenView.resx">
+      <DependentUpon>StartScreenView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Structure.resx">
-      <DependentUpon>Structure.cs</DependentUpon>
+    <EmbeddedResource Include="StructureView.resx">
+      <DependentUpon>StructureView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StructureOverlay.resx">
-      <DependentUpon>StructureOverlay.cs</DependentUpon>
+    <EmbeddedResource Include="StructureOverlayView.resx">
+      <DependentUpon>StructureOverlayView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Logic.Model.GridCompany.datasource" />

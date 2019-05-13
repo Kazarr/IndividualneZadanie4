@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Logic
 {
@@ -25,9 +26,19 @@ namespace Logic
             return DB_NAME;
         }
 
-        public BindingList<GridCompany> GetDepartments()
+        public BindingList<GridCompany> GetSelectedCompanyDepartment(int selectedId)
         {
-            return new BindingList<GridCompany>(ManagerRepository.GridCompanyRepository.GetDepartments());
+            return new BindingList<GridCompany>(ManagerRepository.GridCompanyRepository.GetDepartments(selectedId));
+        }
+
+        public BindingList<Employee> GetEmployees(int selectedId)
+        {
+            return new BindingList<Employee>(ManagerRepository.EmployeeRespository.GetEmployees(selectedId));
+        }
+
+        public GridCompany GetGridCompany(int selectedId)
+        {
+            return ManagerRepository.GridCompanyRepository.GetGridCompany(selectedId);
         }
 
         public BindingList<GridCompany> GetCompanies()

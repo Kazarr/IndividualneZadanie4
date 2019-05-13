@@ -1,6 +1,6 @@
 ﻿namespace CompanyStructure
 {
-    partial class StructureOverlay
+    partial class StructureOverlayView
     {
         /// <summary>
         /// Required designer variable.
@@ -35,19 +35,18 @@
             this.btnGuiHeirarchy = new System.Windows.Forms.Button();
             this.btnAddStructure = new System.Windows.Forms.Button();
             this.btnEditStructure = new System.Windows.Forms.Button();
-            this.grdStructure = new System.Windows.Forms.DataGridView();
+            this.grdDepartments = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnDelStructure = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.grdProjects = new System.Windows.Forms.DataGridView();
+            this.grdDivisions = new System.Windows.Forms.DataGridView();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblProject = new System.Windows.Forms.Label();
             this.lblDivision = new System.Windows.Forms.Label();
-            this.treeStructures = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartmentEmployees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdStructure)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDepartments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProjects)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDivisions)).BeginInit();
             this.SuspendLayout();
             // 
             // grdDepartmentEmployees
@@ -118,13 +117,16 @@
             this.btnEditStructure.UseVisualStyleBackColor = true;
             this.btnEditStructure.Click += new System.EventHandler(this.btnEditStructure_Click);
             // 
-            // grdStructure
+            // grdDepartments
             // 
-            this.grdStructure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdStructure.Location = new System.Drawing.Point(150, 39);
-            this.grdStructure.Name = "grdStructure";
-            this.grdStructure.Size = new System.Drawing.Size(227, 265);
-            this.grdStructure.TabIndex = 7;
+            this.grdDepartments.AllowUserToAddRows = false;
+            this.grdDepartments.AllowUserToDeleteRows = false;
+            this.grdDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDepartments.Location = new System.Drawing.Point(150, 39);
+            this.grdDepartments.Name = "grdDepartments";
+            this.grdDepartments.ReadOnly = true;
+            this.grdDepartments.Size = new System.Drawing.Size(227, 265);
+            this.grdDepartments.TabIndex = 7;
             // 
             // btnClose
             // 
@@ -145,21 +147,27 @@
             this.btnDelStructure.Text = "Delete Structure";
             this.btnDelStructure.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // grdProjects
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(383, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(227, 265);
-            this.dataGridView1.TabIndex = 10;
+            this.grdProjects.AllowUserToAddRows = false;
+            this.grdProjects.AllowUserToDeleteRows = false;
+            this.grdProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdProjects.Location = new System.Drawing.Point(383, 39);
+            this.grdProjects.Name = "grdProjects";
+            this.grdProjects.ReadOnly = true;
+            this.grdProjects.Size = new System.Drawing.Size(227, 265);
+            this.grdProjects.TabIndex = 10;
             // 
-            // dataGridView2
+            // grdDivisions
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(616, 39);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(227, 265);
-            this.dataGridView2.TabIndex = 11;
+            this.grdDivisions.AllowUserToAddRows = false;
+            this.grdDivisions.AllowUserToDeleteRows = false;
+            this.grdDivisions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDivisions.Location = new System.Drawing.Point(616, 39);
+            this.grdDivisions.Name = "grdDivisions";
+            this.grdDivisions.ReadOnly = true;
+            this.grdDivisions.Size = new System.Drawing.Size(227, 265);
+            this.grdDivisions.TabIndex = 11;
             // 
             // lblDepartment
             // 
@@ -188,27 +196,19 @@
             this.lblDivision.TabIndex = 15;
             this.lblDivision.Text = "Division";
             // 
-            // treeStructures
-            // 
-            this.treeStructures.Location = new System.Drawing.Point(849, 39);
-            this.treeStructures.Name = "treeStructures";
-            this.treeStructures.Size = new System.Drawing.Size(307, 444);
-            this.treeStructures.TabIndex = 16;
-            // 
-            // StructureOverlay
+            // StructureOverlayView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 495);
-            this.Controls.Add(this.treeStructures);
+            this.ClientSize = new System.Drawing.Size(865, 495);
             this.Controls.Add(this.lblDivision);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.lblDepartment);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdDivisions);
+            this.Controls.Add(this.grdProjects);
             this.Controls.Add(this.btnDelStructure);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.grdStructure);
+            this.Controls.Add(this.grdDepartments);
             this.Controls.Add(this.btnEditStructure);
             this.Controls.Add(this.btnAddStructure);
             this.Controls.Add(this.btnGuiHeirarchy);
@@ -216,12 +216,12 @@
             this.Controls.Add(this.btnEditEmployee);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.grdDepartmentEmployees);
-            this.Name = "StructureOverlay";
+            this.Name = "StructureOverlayView";
             this.Text = "StructureOverlay";
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartmentEmployees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdStructure)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDepartments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdProjects)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDivisions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,14 +236,13 @@
         private System.Windows.Forms.Button btnGuiHeirarchy;
         private System.Windows.Forms.Button btnAddStructure;
         private System.Windows.Forms.Button btnEditStructure;
-        private System.Windows.Forms.DataGridView grdStructure;
+        private System.Windows.Forms.DataGridView grdDepartments;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnDelStructure;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView grdProjects;
+        private System.Windows.Forms.DataGridView grdDivisions;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Label lblDivision;
-        private System.Windows.Forms.TreeView treeStructures;
     }
 }

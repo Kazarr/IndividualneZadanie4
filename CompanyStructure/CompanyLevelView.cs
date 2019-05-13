@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace CompanyStructure
 {
-    public partial class CompanyLevel : Form
+    public partial class CompanyLevelView : Form
     {
         private CompanyLevelViewModel _companyLevelViewModel;
-        public CompanyLevel(LogicSystem logic)
+        public CompanyLevelView(LogicSystem logic)
         {
             InitializeComponent();
             _companyLevelViewModel = new CompanyLevelViewModel(logic);
@@ -24,7 +24,7 @@ namespace CompanyStructure
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            using(StructureOverlay overlay = new StructureOverlay(_companyLevelViewModel.LogicSystem, grdCompanies.CurrentRow.Index))
+            using(StructureOverlayView overlay = new StructureOverlayView(_companyLevelViewModel.LogicSystem, (int)grdCompanies.Rows[grdCompanies.CurrentRow.Index].Cells[0].Value))
             {
                 overlay.ShowDialog();
             }
@@ -32,7 +32,7 @@ namespace CompanyStructure
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using(NewCompany company = new NewCompany())
+            using(NewCompanyView company = new NewCompanyView())
             {
                 company.ShowDialog();
                 if(company.DialogResult == DialogResult.OK)
