@@ -49,7 +49,14 @@ namespace CompanyStructure
 
         private void btnDelEmployee_Click(object sender, EventArgs e)
         {
-            _structureOverLayViewModel.DeleteEmployee();
+            if (!_structureOverLayViewModel.IsCheif())
+            {
+                _structureOverLayViewModel.DeleteEmployee();
+            }
+            else
+            {
+                MessageBox.Show("You cant delete cheif employee. Change cheif employee first");
+            }
         }
 
         private void btnAddStructure_Click(object sender, EventArgs e)

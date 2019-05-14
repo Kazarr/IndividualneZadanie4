@@ -46,6 +46,11 @@ namespace Logic
             return new BindingList<Department>(ManagerRepository.DepartmentRepository.GetDeparmentByType(selectedType));
         }
 
+        public Employee GetCheif(int departmentId)
+        {
+            return ManagerRepository.DepartmentRepository.GetCheifEmployee(departmentId);
+        }
+
         public DepartmentType GetDeparmentByType(int? id)
         {
             return ManagerRepository.DepartmentRepository.GetDeparmentType(id);

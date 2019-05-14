@@ -46,5 +46,14 @@ namespace CompanyStructure
         {
             LogicSystem.DeleteEmployee(Employee);
         }
+
+        public bool IsCheif()
+        {
+            if (Employee.Id == LogicSystem.GetCheif(DepartmentId).Id)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
