@@ -150,6 +150,7 @@
             this.btnOk.TabIndex = 12;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -162,7 +163,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // Employee
+            // EmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,7 +182,7 @@
             this.Controls.Add(this.txtDegree);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
-            this.Name = "Employee";
+            this.Name = "EmployeeView";
             this.Text = "Employee";
             this.ResumeLayout(false);
             this.PerformLayout();

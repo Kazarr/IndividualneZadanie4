@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDepartmentName = new System.Windows.Forms.TextBox();
             this.cmbDepartmentType = new System.Windows.Forms.ComboBox();
             this.cmbParentDepartment = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -38,14 +38,15 @@
             this.cmbCheifEmployee = new System.Windows.Forms.ComboBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtDepartmentName
             // 
-            this.textBox1.Location = new System.Drawing.Point(269, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtDepartmentName.Location = new System.Drawing.Point(269, 12);
+            this.txtDepartmentName.Name = "txtDepartmentName";
+            this.txtDepartmentName.Size = new System.Drawing.Size(121, 20);
+            this.txtDepartmentName.TabIndex = 0;
             // 
             // cmbDepartmentType
             // 
@@ -54,6 +55,7 @@
             this.cmbDepartmentType.Name = "cmbDepartmentType";
             this.cmbDepartmentType.Size = new System.Drawing.Size(121, 21);
             this.cmbDepartmentType.TabIndex = 2;
+            this.cmbDepartmentType.SelectedIndexChanged += new System.EventHandler(this.cmbDepartmentType_SelectedIndexChanged);
             // 
             // cmbParentDepartment
             // 
@@ -106,6 +108,7 @@
             this.cmbCheifEmployee.Name = "cmbCheifEmployee";
             this.cmbCheifEmployee.Size = new System.Drawing.Size(121, 21);
             this.cmbCheifEmployee.TabIndex = 8;
+            this.cmbCheifEmployee.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCheifEmployee_Validating);
             // 
             // btnOk
             // 
@@ -116,6 +119,7 @@
             this.btnOk.TabIndex = 9;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -127,11 +131,23 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // Structure
+            // btnAdd
+            // 
+            this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnAdd.Location = new System.Drawing.Point(315, 152);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 11;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // StructureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(411, 187);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.cmbCheifEmployee);
@@ -141,8 +157,8 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.cmbParentDepartment);
             this.Controls.Add(this.cmbDepartmentType);
-            this.Controls.Add(this.textBox1);
-            this.Name = "Structure";
+            this.Controls.Add(this.txtDepartmentName);
+            this.Name = "StructureView";
             this.Text = "Structure";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,7 +167,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDepartmentName;
         private System.Windows.Forms.ComboBox cmbDepartmentType;
         private System.Windows.Forms.ComboBox cmbParentDepartment;
         private System.Windows.Forms.Label lblName;
@@ -161,5 +177,6 @@
         private System.Windows.Forms.ComboBox cmbCheifEmployee;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAdd;
     }
 }

@@ -26,6 +26,77 @@ namespace Logic
             return DB_NAME;
         }
 
+        public BindingList<Employee> GetEmployees()
+        {
+            return new BindingList<Employee>(ManagerRepository.EmployeeRespository.GetAllEmployees());
+        }
+
+        public BindingList<DepartmentType> GetDeparmentTypes()
+        {
+            return new BindingList<DepartmentType>(ManagerRepository.DepartmentRepository.GetDeparmentTypes());
+        }
+
+        public Employee GetCheifEmployeeDepartment(int? idDepartment)
+        {
+            return ManagerRepository.DepartmentRepository.GetCheifEmployee(idDepartment);
+        }
+
+        public BindingList<Department> GetCompanyDeivsionProject(int selectedType)
+        {
+            return new BindingList<Department>(ManagerRepository.DepartmentRepository.GetDeparmentByType(selectedType));
+        }
+
+        public DepartmentType GetDeparmentByType(int? id)
+        {
+            return ManagerRepository.DepartmentRepository.GetDeparmentType(id);
+        }
+
+        public void SaveDepartment(Department department)
+        {
+            ManagerRepository.DepartmentRepository.InsertDepartment(department);
+        }
+
+        public void UpdateDepartment(Department department)
+        {
+            ManagerRepository.DepartmentRepository.UpdateDepartment(department);
+        }
+
+        public Department GetDepartmentById(int departmentId)
+        {
+            return ManagerRepository.DepartmentRepository.GetDepartmentById(departmentId);
+        }
+
+        public BindingList<GridCompany> GetDepartmetns()
+        {
+            return new BindingList<GridCompany>(ManagerRepository.GridCompanyRepository.GetDepartments());
+        }
+
+        public GridCompany GetEmployeeDepartment(int? departmentId)
+        {
+            return ManagerRepository.GridCompanyRepository.GetEmployeeDepartment(departmentId);
+        }
+
+        public void SaveEmployee(Employee employee)
+        {
+            ManagerRepository.EmployeeRespository.InsertEmployee(employee);
+        }
+
+        public void NewCompany(string name)
+        {
+            ManagerRepository.DepartmentRepository.InsertDepartment(new Department()
+            {
+                Name = name,
+                DepartmentType = 1,
+                ParentDeparment = null,
+
+            });
+        }
+
+        public void DeleteEmployee(Employee employee)
+        {
+            ManagerRepository.EmployeeRespository.DeleteEmployee(employee);
+        }
+
         public BindingList<GridCompany> GetSelectedCompanyDepartment(int selectedId)
         {
             return new BindingList<GridCompany>(ManagerRepository.GridCompanyRepository.GetDepartments(selectedId));

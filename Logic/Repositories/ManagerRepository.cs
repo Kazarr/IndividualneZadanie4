@@ -11,6 +11,7 @@ namespace Logic.Repositories
     {
         public static GridDepartmentRepository GridCompanyRepository = new GridDepartmentRepository();
         public static EmployeeRespository EmployeeRespository = new EmployeeRespository();
+        public static DepartmentRepository DepartmentRepository = new DepartmentRepository();
         public bool GenerateDB()
         {
             bool ret = false;

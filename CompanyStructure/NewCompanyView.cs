@@ -12,14 +12,16 @@ namespace CompanyStructure
 {
     public partial class NewCompanyView : Form
     {
+        private NewCompanyViewModel _newCompanyViewModel;
         public NewCompanyView()
         {
             InitializeComponent();
+            _newCompanyViewModel = new NewCompanyViewModel();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Close();
+            _newCompanyViewModel.NewCompany(txtCompanyName.Text);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

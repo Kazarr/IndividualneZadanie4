@@ -43,19 +43,26 @@
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblProject = new System.Windows.Forms.Label();
             this.lblDivision = new System.Windows.Forms.Label();
+            this.grdCompanies = new System.Windows.Forms.DataGridView();
+            this.lblCompany = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartmentEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDivisions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCompanies)).BeginInit();
             this.SuspendLayout();
             // 
             // grdDepartmentEmployees
             // 
+            this.grdDepartmentEmployees.AllowUserToAddRows = false;
+            this.grdDepartmentEmployees.AllowUserToDeleteRows = false;
             this.grdDepartmentEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdDepartmentEmployees.Location = new System.Drawing.Point(149, 316);
             this.grdDepartmentEmployees.Name = "grdDepartmentEmployees";
-            this.grdDepartmentEmployees.Size = new System.Drawing.Size(694, 167);
+            this.grdDepartmentEmployees.ReadOnly = true;
+            this.grdDepartmentEmployees.Size = new System.Drawing.Size(927, 167);
             this.grdDepartmentEmployees.TabIndex = 0;
+            this.grdDepartmentEmployees.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDepartmentEmployees_RowEnter);
             // 
             // btnAddEmployee
             // 
@@ -127,6 +134,7 @@
             this.grdDepartments.ReadOnly = true;
             this.grdDepartments.Size = new System.Drawing.Size(227, 265);
             this.grdDepartments.TabIndex = 7;
+            this.grdDepartments.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDepartments_RowEnter);
             // 
             // btnClose
             // 
@@ -146,6 +154,7 @@
             this.btnDelStructure.TabIndex = 9;
             this.btnDelStructure.Text = "Delete Structure";
             this.btnDelStructure.UseVisualStyleBackColor = true;
+            this.btnDelStructure.Click += new System.EventHandler(this.btnDelStructure_Click);
             // 
             // grdProjects
             // 
@@ -157,6 +166,7 @@
             this.grdProjects.ReadOnly = true;
             this.grdProjects.Size = new System.Drawing.Size(227, 265);
             this.grdProjects.TabIndex = 10;
+            this.grdProjects.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProjects_RowEnter);
             // 
             // grdDivisions
             // 
@@ -168,6 +178,7 @@
             this.grdDivisions.ReadOnly = true;
             this.grdDivisions.Size = new System.Drawing.Size(227, 265);
             this.grdDivisions.TabIndex = 11;
+            this.grdDivisions.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDivisions_RowEnter);
             // 
             // lblDepartment
             // 
@@ -196,11 +207,34 @@
             this.lblDivision.TabIndex = 15;
             this.lblDivision.Text = "Division";
             // 
+            // grdCompanies
+            // 
+            this.grdCompanies.AllowUserToAddRows = false;
+            this.grdCompanies.AllowUserToDeleteRows = false;
+            this.grdCompanies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCompanies.Location = new System.Drawing.Point(849, 39);
+            this.grdCompanies.Name = "grdCompanies";
+            this.grdCompanies.ReadOnly = true;
+            this.grdCompanies.Size = new System.Drawing.Size(227, 265);
+            this.grdCompanies.TabIndex = 16;
+            this.grdCompanies.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCompanies_RowEnter);
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(846, 23);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(51, 13);
+            this.lblCompany.TabIndex = 17;
+            this.lblCompany.Text = "Company";
+            // 
             // StructureOverlayView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 495);
+            this.ClientSize = new System.Drawing.Size(1150, 495);
+            this.Controls.Add(this.lblCompany);
+            this.Controls.Add(this.grdCompanies);
             this.Controls.Add(this.lblDivision);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.lblDepartment);
@@ -222,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProjects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDivisions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCompanies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +279,7 @@
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Label lblDivision;
+        private System.Windows.Forms.DataGridView grdCompanies;
+        private System.Windows.Forms.Label lblCompany;
     }
 }

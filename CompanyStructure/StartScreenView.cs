@@ -44,9 +44,9 @@ namespace CompanyStructure
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            using(CompanyLevelView companyLevel = new CompanyLevelView(_startScreenViewModel.Logic))
+            using (StructureOverlayView structureOverlayView = new StructureOverlayView(new Logic.LogicSystem()))
             {
-                companyLevel.ShowDialog();
+                structureOverlayView.ShowDialog();
             }
         }
     }

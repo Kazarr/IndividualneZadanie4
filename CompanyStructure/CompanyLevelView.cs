@@ -24,10 +24,10 @@ namespace CompanyStructure
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            using(StructureOverlayView overlay = new StructureOverlayView(_companyLevelViewModel.LogicSystem, (int)grdCompanies.Rows[grdCompanies.CurrentRow.Index].Cells[0].Value))
-            {
-                overlay.ShowDialog();
-            }
+            //using(StructureOverlayView overlay = new StructureOverlayView(_companyLevelViewModel.LogicSystem, (int)grdCompanies.Rows[grdCompanies.CurrentRow.Index].Cells[0].Value))
+            //{
+            //    overlay.ShowDialog();
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace CompanyStructure
                 company.ShowDialog();
                 if(company.DialogResult == DialogResult.OK)
                 {
-
+                    grdCompanies.DataSource = _companyLevelViewModel.GetCompanies();
                 }
             }
         }

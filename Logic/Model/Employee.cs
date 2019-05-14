@@ -8,11 +8,17 @@ namespace Logic.Model
 {
     public class Employee
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string SurName { get; set; }
         public string Degree { get; set; }
-        public int Phone { get; set; }
+        public int? Phone { get; set; }
         public string Mail { get; set; }
+        public int? DepartmentId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} {SurName}";
+        }
     }
 }
