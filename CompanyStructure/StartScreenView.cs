@@ -27,16 +27,22 @@ namespace CompanyStructure
             if (DialogResult.OK == dlg.ShowDialog())
             {
                 //Use the connection properties
+                //using (SqlConnection conn = new SqlConnection(dlg.ConnectionStringBuilder.ConnectionString))
+                //{
+                //    _startScreenViewModel.SaveConnectionString()
+                //}
                 using (SqlConnection conn = new SqlConnection(dlg.ConnectionStringBuilder.ConnectionString))
                 {
+                    _startScreenViewModel.SaveConnectionString(conn.ConnectionString);
                     if (!_startScreenViewModel.HasDatabase())
                     {
-                        _startScreenViewModel.SaveConnectionString(conn.ConnectionString);
+                        //_startScreenViewModel.SaveConnectionString(conn.ConnectionString);
                         dlg.ConnectionStringBuilder.InitialCatalog = _startScreenViewModel.GenerateDb();
                         _startScreenViewModel.SaveConnectionString(dlg.ConnectionStringBuilder.ConnectionString);
                         _startScreenViewModel.GenerateTables();
                     }
-
+                    dlg.ConnectionStringBuilder.InitialCatalog = _startScreenViewModel.GenerateDb();
+                    _startScreenViewModel.SaveConnectionString(dlg.ConnectionStringBuilder.ConnectionString);
 
                 }
             }

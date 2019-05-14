@@ -57,6 +57,31 @@ namespace Logic.Repositories
             return ret;
         }
 
+        public List<Department> GetDepartmentByParent(int? departmentId)
+        {
+            List<Department> ret = new List<Department>();
+            Execute((command) => 
+            {
+                command.CommandText = @"select * from Department where ParentDepartmentId = @departmentId";
+                command.Parameters.Add("@departmentId", SqlDbType.Int).Value = departmentId;
+                using(SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ret.Add(new Department()
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            DepartmentType = reader.GetInt32(2),
+                            ParentDeparment = reader.GetInt32(3),
+                            CheifEmployeeId = reader.GetInt32(4)
+                        });
+                    }
+                }
+            });
+            return ret;
+        }
+
         public DepartmentType GetDeparmentType(int? id)
         {
             DepartmentType ret = new DepartmentType();

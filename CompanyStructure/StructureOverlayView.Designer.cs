@@ -45,6 +45,7 @@
             this.lblDivision = new System.Windows.Forms.Label();
             this.grdCompanies = new System.Windows.Forms.DataGridView();
             this.lblCompany = new System.Windows.Forms.Label();
+            this.treeStructure = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartmentEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdProjects)).BeginInit();
@@ -228,11 +229,19 @@
             this.lblCompany.TabIndex = 17;
             this.lblCompany.Text = "Company";
             // 
+            // treeStructure
+            // 
+            this.treeStructure.Location = new System.Drawing.Point(1082, 39);
+            this.treeStructure.Name = "treeStructure";
+            this.treeStructure.Size = new System.Drawing.Size(183, 444);
+            this.treeStructure.TabIndex = 18;
+            // 
             // StructureOverlayView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 495);
+            this.ClientSize = new System.Drawing.Size(1277, 495);
+            this.Controls.Add(this.treeStructure);
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.grdCompanies);
             this.Controls.Add(this.lblDivision);
@@ -281,5 +290,6 @@
         private System.Windows.Forms.Label lblDivision;
         private System.Windows.Forms.DataGridView grdCompanies;
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.TreeView treeStructure;
     }
 }

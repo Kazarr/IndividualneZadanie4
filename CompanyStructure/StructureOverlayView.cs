@@ -36,6 +36,37 @@ namespace CompanyStructure
             }
         }
 
+
+
+
+        public void RefreshTree(TreeNode node)
+        {
+            //_structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
+            //_structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
+            if(!treeStructure.Nodes.Contains(node))
+            {
+                treeStructure.Nodes.Add(node);
+                //node.Nodes.Add(new TreeNode());
+                //treenode.Nodes.Add(new TreeNode());
+                for (int i = 0; i < _structureOverLayViewModel.ChildDepartments.Count; i++)
+                {
+                    //node.Nodes.
+                    //node.Nodes.Add(node.Nodes[i]);
+                    _structureOverLayViewModel.ToTreeDepartments.Push(_structureOverLayViewModel.ChildDepartments[i]);
+                    //RefreshTree(node.Nodes[i]);
+                }
+            }
+            if (_structureOverLayViewModel.ToTreeDepartments.Count > 0)
+            {
+                _structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.ToTreeDepartments.Peek().Id);
+                TreeNode treeNode = new TreeNode(_structureOverLayViewModel.ToTreeDepartments.Pop().Name);
+                node.Nodes.Add(treeNode);
+                
+                RefreshTree(treeNode);
+            }
+
+        }
+
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
             using (EmployeeView employee = new EmployeeView(_structureOverLayViewModel.LogicSystem, _structureOverLayViewModel.Employee, grdDepartments.DataSource))
@@ -91,7 +122,9 @@ namespace CompanyStructure
 
         private void btnGuiHeirarchy_Click(object sender, EventArgs e)
         {
-
+            treeStructure.Nodes.Clear();
+            TreeNode node = new TreeNode(_structureOverLayViewModel.GetSeletedDepartment());
+            RefreshTree(node);
         }
 
         private void grdCompanies_RowEnter(object sender, DataGridViewCellEventArgs e)

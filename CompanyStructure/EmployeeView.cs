@@ -47,7 +47,7 @@ namespace CompanyStructure
             _employeeViewModel.Employee.Phone = int.Parse(txtPhone.Text);
             _employeeViewModel.Employee.Mail = txtMail.Text;
             GridCompany temp = (GridCompany)cmbWorkingDepartment.SelectedValue;
-            _employeeViewModel.Employee.DepartmentId = temp.Id;
+            _employeeViewModel.Employee.DepartmentId = temp==null ? null : temp.Id;
             _employeeViewModel.SaveEmployee();
         }
     }
