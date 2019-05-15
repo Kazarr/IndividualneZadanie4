@@ -36,36 +36,85 @@ namespace CompanyStructure
             }
         }
 
-
-
-
-        public void RefreshTree(TreeNode node)
+        public bool HasNode(TreeNode node)
         {
-            //_structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
-            //_structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
-            if(!treeStructure.Nodes.Contains(node))
+            bool ret = false;
+            foreach(TreeNode subNode in treeStructure.Nodes)
+            {
+                if (subNode == node)
+                {
+                    ret = true;
+                    return ret;
+                }
+                ret = HasNode(subNode);
+            }
+            return ret;
+        }
+
+        public void KardyRefreshTree(TreeNode node)
+        {
+            if (!HasNode(node))
             {
                 treeStructure.Nodes.Add(node);
-                //node.Nodes.Add(new TreeNode());
-                //treenode.Nodes.Add(new TreeNode());
-                for (int i = 0; i < _structureOverLayViewModel.ChildDepartments.Count; i++)
-                {
-                    //node.Nodes.
-                    //node.Nodes.Add(node.Nodes[i]);
-                    _structureOverLayViewModel.ToTreeDepartments.Push(_structureOverLayViewModel.ChildDepartments[i]);
-                    //RefreshTree(node.Nodes[i]);
-                }
+                Refresh(node, _structureOverLayViewModel.ChildDepartments);
             }
-            if (_structureOverLayViewModel.ToTreeDepartments.Count > 0)
-            {
-                _structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.ToTreeDepartments.Peek().Id);
-                TreeNode treeNode = new TreeNode(_structureOverLayViewModel.ToTreeDepartments.Pop().Name);
-                node.Nodes.Add(treeNode);
-                
-                RefreshTree(treeNode);
-            }
-
+            treeStructure.ExpandAll();
         }
+
+        private void Refresh(TreeNode parent, List<Department> zoznam)
+        {
+            foreach (var item in zoznam)
+            {
+                TreeNode node = new TreeNode(item.Name);
+                parent.Nodes.Add(node);
+                Refresh(node, _structureOverLayViewModel.GetDepartmentByParent(item.Id));
+            }           
+        }
+
+        //public void KardyRefreshTree(TreeNode node)
+        //{
+
+        //    //_structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
+        //    //_structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.DepartmentId);
+        //    if (!HasNode(node))
+        //    {
+        //        treeStructure.Nodes.Add(node);
+        //        //node.Nodes.Add(new TreeNode());
+        //        //treenode.Nodes.Add(new TreeNode());
+        //        for (int i = 0; i < _structureOverLayViewModel.ChildDepartments.Count; i++)
+        //        {
+        //            //node.Nodes.
+        //            //node.Nodes.Add(node.Nodes[i]);
+        //            //_structureOverLayViewModel.ToTreeDepartments.Push(_structureOverLayViewModel.ChildDepartments[i]);
+        //            TreeNode treeNode = new TreeNode(_structureOverLayViewModel.ChildDepartments[i].Name);
+        //            node.Nodes.Add(treeNode);
+        //            //RefreshTree(node.Nodes[i]);
+
+        //            for (int j = 0; j < _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.ChildDepartments[i].Id).Count; j++)
+        //            {
+        //                //node.Nodes.
+        //                //node.Nodes.Add(node.Nodes[i]);
+        //                //_structureOverLayViewModel.ToTreeDepartments.Push(_structureOverLayViewModel.ChildDepartments[i]);
+        //                TreeNode treeNodeNode = new TreeNode(_structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.ChildDepartments[i].Id)[j].Name);
+        //                treeNode.Nodes.Add(treeNodeNode);
+        //                //RefreshTree(node.Nodes[i]);
+        //            }
+        //        }
+        //    }
+        //    //for (int i = 0; i < _structureOverLayViewModel.ToTreeDepartments.Count; i++)
+        //    //{
+
+        //    //}
+        //    if (_structureOverLayViewModel.ToTreeDepartments.Count > 0)
+        //    {
+        //        _structureOverLayViewModel.ChildDepartments = _structureOverLayViewModel.GetDepartmentByParent(_structureOverLayViewModel.ToTreeDepartments.Peek().Id);
+        //        TreeNode treeNode = new TreeNode(_structureOverLayViewModel.ToTreeDepartments.Pop().Name);
+        //        node.Nodes.Add(treeNode);
+
+        //       // KardyRefreshTree(treeNode);
+        //    }
+
+        //}
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
@@ -124,7 +173,8 @@ namespace CompanyStructure
         {
             treeStructure.Nodes.Clear();
             TreeNode node = new TreeNode(_structureOverLayViewModel.GetSeletedDepartment());
-            RefreshTree(node);
+            //treeStructure.Nodes.Add(node);
+            KardyRefreshTree(node);
         }
 
         private void grdCompanies_RowEnter(object sender, DataGridViewCellEventArgs e)
